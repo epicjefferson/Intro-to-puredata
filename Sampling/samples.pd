@@ -1,0 +1,116 @@
+#N canvas 50 43 1288 637 16;
+#X obj 51 149 soundfiler;
+#X floatatom 51 180 0 0 0 0 - - -;
+#X floatatom 152 400 0 0 0 0 - - -;
+#X obj 51 259 expr 44100/ $f1;
+#X floatatom 51 320 0 0 0 0 - - -;
+#X obj 51 372 phasor~;
+#X obj 50 423 *~;
+#N canvas 0 0 450 300 (subpatch) 0;
+#X array Sound 62743 float 2;
+#X coords 0 1 62743 -1 400 140 1;
+#X restore 744 41 graph;
+#X obj 51 474 tabread4~ Sound;
+#X obj 52 520 *~;
+#X obj 277 389 vsl 30 128 0 1 0 0 empty empty empty 0 -9 0 10 -257985
+-1 -1 0 1;
+#X floatatom 277 532 5 0 0 0 - - -;
+#X obj 50 562 dac~;
+#X obj 1058 301 tgl 30 0 empty empty empty 17 7 0 10 -262144 -1 -1
+0 1;
+#X msg 1058 338 \; pd dsp \$1;
+#X obj 51 46 openpanel;
+#X obj 51 16 bng 25 250 50 0 empty empty empty 17 7 0 10 -257985 -4034
+-1;
+#X msg 51 115 read -resize \$1 Sound;
+#X symbolatom 61 77 0 0 0 0 - - -;
+#X obj 746 222 hsl 400 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 741 415 metro 50;
+#X obj 741 447 snapshot~;
+#X obj 741 533 /;
+#X obj 741 563 s position;
+#X obj 743 192 r position;
+#X obj 741 392 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 746 246 hsl 400 15 0 1 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#N canvas 0 166 512 300 playback 0;
+#X obj 146 19 inlet;
+#X obj 146 53 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X msg 147 114 0.702967;
+#X obj 277 133 bng 30 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 277 167 t b b;
+#X msg 277 217 0;
+#X msg 324 218 0;
+#X obj 148 251 outlet;
+#X obj 248 257 outlet;
+#X obj 325 257 outlet;
+#X text 377 220 stop playback;
+#X floatatom 395 64 5 0 0 0 - - -;
+#X obj 277 2 inlet;
+#X floatatom 379 22 5 0 0 0 - - -;
+#X obj 279 34 * 100;
+#X obj 277 64 i;
+#X obj 273 96 moses 98;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 7 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 4 1 6 0;
+#X connect 5 0 8 0;
+#X connect 6 0 9 0;
+#X connect 11 0 16 1;
+#X connect 12 0 14 0;
+#X connect 14 0 13 0;
+#X connect 14 0 15 0;
+#X connect 15 0 16 0;
+#X connect 16 1 3 0;
+#X restore 743 306 pd playback;
+#X obj 743 282 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 850 279 r position;
+#X text 80 16 <- click aqui para buscar sonido;
+#X text 840 446 <-[snapshot~] devuelve el estado actual de una señal.
+;
+#X obj 99 203 s sampleSize;
+#X obj 152 372 r sampleSize;
+#X obj 784 510 r sampleSize;
+#X text 214 260 este cálculo devuelve playback speed;
+#X text 235 201 [send] object. Enviar mensajes "wireless" dentro de
+Pd;
+#X connect 0 0 1 0;
+#X connect 1 0 3 0;
+#X connect 1 0 32 0;
+#X connect 2 0 6 1;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 6 0;
+#X connect 6 0 8 0;
+#X connect 6 0 21 0;
+#X connect 8 0 9 0;
+#X connect 9 0 12 0;
+#X connect 9 0 12 1;
+#X connect 10 0 11 0;
+#X connect 10 0 9 1;
+#X connect 13 0 14 0;
+#X connect 15 0 17 0;
+#X connect 15 0 18 0;
+#X connect 16 0 15 0;
+#X connect 17 0 0 0;
+#X connect 20 0 21 0;
+#X connect 21 0 22 0;
+#X connect 22 0 23 0;
+#X connect 24 0 19 0;
+#X connect 25 0 20 0;
+#X connect 26 0 5 1;
+#X connect 27 0 5 0;
+#X connect 27 1 5 1;
+#X connect 27 2 5 0;
+#X connect 28 0 27 0;
+#X connect 29 0 27 1;
+#X connect 33 0 2 0;
+#X connect 34 0 22 1;

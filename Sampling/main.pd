@@ -1,0 +1,9 @@
+#N canvas 357 191 545 300 16;
+#X obj -30 72 samples;
+#X text -31 3 abstractions;
+#X obj -31 26 cnv 15 150 20 empty empty empty 20 12 0 14 -204786 -66577
+0;
+#X text 50 69 <- Click para ver el contenido. Podemos llamar a otro
+patch que está en el mismo folder desde una caja de objeto ("Object
+Box"). Esto es muy útil cuando tenemos un patch que vamos a utilizar
+mucho.;

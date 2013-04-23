@@ -1,0 +1,40 @@
+#N canvas 228 86 838 518 16;
+#X obj 27 64 adc~;
+#X obj 27 400 dac~;
+#X obj 83 212 osc~;
+#X obj 27 261 *~;
+#X floatatom 83 153 5 0 0 0 - - -;
+#X text 147 151 Caja de Numeros (Number Box);
+#X text 80 56 Convertidor de Analogo a Digital (Analog to Digital Converter)
+;
+#X obj 27 319 *~ 0.2;
+#X text 80 393 Convertidor de Digital a Analogo (Digital to Analog
+Converter);
+#N canvas 0 0 543 300 Audio 0;
+#X obj 13 83 inlet;
+#X msg 13 238 \; pd dsp \$1;
+#X text 11 9 Esto es un "sub-patch".;
+#X text 80 82 Sub-patches contienen entradas (inlets) para recibir
+información del patch principal.;
+#X text 158 234 Este es un mensaje que se le envía a Pd para procesar
+\, o no procesar \, el audio.;
+#X connect 0 0 1 0;
+#X restore 529 240 pd Audio On/Off;
+#X obj 529 145 tgl 25 0 empty empty empty 17 7 0 10 -257985 -1 -1 0
+1;
+#X text 146 205 Oscilador;
+#X obj 27 15 cnv 15 350 20 empty empty ***VOCODER*** 20 12 0 16 -4034
+-66577 0;
+#X text 562 138 Toggle box envía 1 ó 0;
+#X text 84 258 Multiplicar señal;
+#X text 98 313 Regular amplitud a 0.2 de un máximo de 1;
+#X text 690 233 Sub-patch;
+#X connect 0 0 3 0;
+#X connect 0 1 3 0;
+#X connect 2 0 3 1;
+#X connect 3 0 7 0;
+#X connect 4 0 2 0;
+#X connect 7 0 1 0;
+#X connect 7 0 1 1;
+#X connect 10 0 9 0;
+#X coords 0 0 1 1 85 60 0;
